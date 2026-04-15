@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>2024心理学研究：你的潜在人格特质分析</title>
+    <style>
+        /* 基础样式 */
+        body, html { margin: 0; padding: 0; height: 100%; font-family: -apple-system, sans-serif; background: #fdfdfd; overflow: hidden; }
+
+        /* 第一层：极其正经的伪装层 */
+        #fakePage {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #ffffff; z-index: 100; display: flex; flex-direction: column;
+            align-items: center; padding-top: 80px; box-sizing: border-box;
+        }
+        .fake-logo { width: 70px; height: 70px; background: #f0f7ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; margin-bottom: 20px; }
+        .fake-title { font-size: 22px; color: #222; font-weight: 600; margin-bottom: 15px; }
+        .fake-desc { font-size: 15px; color: #666; width: 80%; text-align: center; line-height: 1.6; }
+        .start-btn {
+            margin-top: 60px; width: 240px; height: 50px; background: #007aff; color: white;
+            border-radius: 25px; display: flex; align-items: center; justify-content: center;
+            font-size: 18px; font-weight: 500; cursor: pointer; box-shadow: 0 10px 20px rgba(0,122,255,0.2);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 第二层：瞬间反转的三国杀层 */
+        #realPage {
+            display: none; width: 100%; height: 100%;
+            background: #000 url('https://img.zcool.cn/community/01f93f5b1264c9a801212dbe0d754c.jpg@1280w_1l_2o_100sh.jpg') no-repeat center center;
+            background-size: cover; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .sgs-box {
+            background: rgba(0,0,0,0.7); padding: 40px 20px; border: 2px solid #d4af37;
+            border-radius: 10px; text-align: center; width: 80%;
+        }
+        .sgs-text { color: #d4af37; font-size: 45px; font-weight: bold; letter-spacing: 10px; text-shadow: 0 0 15px #ff0000; margin: 0; }
+        .sgs-sub { color: #fff; font-size: 18px; margin-top: 20px; letter-spacing: 2px; }
+
+        /* 动画 */
+        .zoomIn { animation: zoomIn 0.3s ease-out forwards; }
+        @keyframes zoomIn { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+    </style>
+</head>
+<body>
+
+    <!-- 伪装层 -->
+    <div id="fakePage">
+        <div class="fake-logo">🧠</div>
+        <div class="fake-title">潜在人格特质测试</div>
+        <div class="fake-desc">本测试由斯坦福心理学实验室提供理论支持，将通过你的点击反馈分析你的深度性格。</div>
+        <div class="start-btn" onclick="goSurprise()">开始深度分析</div>
+        <p style="margin-top: 20px; color: #ccc; font-size: 12px;">已有 1,428,510 人参与测试</p>
+    </div>
+
+    <!-- 真实层 -->
+    <div id="realPage">
+        <div class="sgs-box zoomIn">
+            <h1 class="sgs-text">杀！</h1>
+            <p class="sgs-sub">主公，该出牌了</p>
+            <div style="margin-top: 30px; color: #d4af37; font-size: 12px; border-top: 1px solid #d4af37; padding-top: 15px;">
+                《三国杀》移动版 · 经典重现
+            </div>
+        </div>
+    </div>
+
+    <!-- 你指定的音乐链接 -->
+    <audio id="sgsAudio" loop preload="auto">
+        <source src="https://music.163.com/song/media/outer/url?id=33789457.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function goSurprise() {
+            // 1. 播放你指定的音乐
+            var audio = document.getElementById('sgsAudio');
+            audio.play();
+
+            // 2. 瞬间切换标题
+            document.title = "杀！！！";
+
+            // 3. 隐藏伪装层，显示三国杀
+            document.getElementById('fakePage').style.display = 'none';
+            document.getElementById('realPage').style.display = 'flex';
+            
+            // 4. 微信内震动提示（如果支持）
+            if (navigator.vibrate) {
+                navigator.vibrate(200);
+            }
+        }
+
+        // 兼容性处理：尝试在微信环境中预加载
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            document.getElementById('sgsAudio').load();
+        }, false);
+    </script>
+</body>
+</html>
